@@ -1,0 +1,101 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Traffic Light Simulator</title>
+
+            <style>
+                .traffic-light{
+                    width:100px;
+                    height:300px;
+                    border:1px solid black;
+                    display:flex;
+                    flex-direction:column;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 100px;
+                    margin-left: 600px;
+                    background-color: black;
+                }
+                .pole{
+                    width:38px;
+                    height:100px;
+                    border:1px solid black;
+                    display:flex;
+                    flex-direction:column;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-left: 630px;
+                    background-color: black;
+                }
+                .light{
+                    width:80px;
+                    height:80px;
+                    border-radius:50%;
+                    margin: 10px;
+                }
+                .red{
+                    background-color: red;
+                }
+                .yellow{
+                    background-color: yellow;
+                }
+                .green{
+                    background-color: green;
+                }
+                .head{
+                    text-align: center;
+                }
+                body{
+                    background-image:url("i.jpg");
+                    background-repeat:no repeat;
+                     background-size:cover;
+                }
+
+
+                
+                
+            
+ </style>
+ </head>
+<body> 
+    <header class="head">
+        <h1 class="h1">TRAFFIC LIGHT SIMULATOR</h1>
+    </header>
+   <div class="traffic-light">
+   
+  <div class="light red"></div>
+<div class="light yellow"></div>
+<div class="light green"></div>
+</div>
+<div class="pole"></div>
+</div>
+<script>
+    const redLight=document.querySelector('.red');
+    const yellowLight=document.querySelector('.yellow');
+    const greenLight=document.querySelector('.green');
+    function changeLights(){
+        setTimeout(() => {
+        redLight.style.backgroundColor='red';
+         yellowLight.style.backgroundColor='transparent';
+         greenLight.style.backgroundColor='transparent';
+        setTimeout(() => {
+         redLight.style.backgroundColor='transparent';
+         yellowLight.style.backgroundColor='yellow';
+         greenLight.style.backgroundColor='transparent';
+        setTimeout(() => {
+        redLight.style.backgroundColor='transparent';
+        yellowLight.style.backgroundColor='transparent';
+        greenLight.style.backgroundColor='green';
+        changeLights();//recursively call to keep cycle going
+       },2000);//Green light for 2 seconds
+     },1000);//yellow light for 1 seconds
+   },2000);//red light for 2 seconds
+ }
+ changeLights();//Start the cycle
+</script>
+ </body>
+</html>
+    
